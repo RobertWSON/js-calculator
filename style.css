@@ -1,0 +1,139 @@
+body, html{
+    width:100%;
+    background-color: whitesmoke;
+}
+
+h1  {
+    text-align: center;
+    color: cadetblue;
+}
+
+.calculator {
+    max-width: 520px;
+    display: inline-block;
+    background-color: lightgray;
+    margin: 0 auto;
+
+/*curved edges for calculator*/
+border-top-left-radius: 80% 20px;
+border-top-right-radius: 80% 20px;
+border-bottom-left-radius: 80% 20px;
+border-bottom-right-radius: 80% 20px;
+
+}
+
+
+/* Buttons */
+.btn-num  {
+    box-shadow: 0px 6px 12px,#222222;
+    border:1px solid darkgrey;
+}
+
+.btn-num.focus  {
+    outline: none;    
+}
+
+.button-row div  {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    line-height: 60px;
+    margin: 5px;
+}
+
+.btn-row .btn  {
+    width: 60px;
+    height: 60px;
+    background-color: #636363;
+
+
+}
+
+
+.btn-op {
+    background-color: #FF8400 !important;
+}
+
+
+.btn-brac {
+    background-color: yellow;
+}
+
+
+
+.btn-clear  {
+    background-color: #0099FF !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+.button-off {
+    background-color: white !important;
+}
+
+.calc-history-eq    {
+    color: black;
+    cursor: pointer;
+}
+
+#container  {
+    width: 650px;
+    background-color: wheat;
+    height: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+#expression {
+    height: 65px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: right;
+    background-color: burlywood;
+    border-radius: 5px;
+    font-size: 35px;
+}
+
+#standard-buttons   {
+    display: inline-block;
+    margin-left: -20px;
+    margin-bottom: 10px
+}
+
+#advanced-buttons   {
+    display: inline-block;
+    display: none;
+    margin-left: -20px;
+}
+
+#toggle-advanced span{
+    pointer-events: none;
+}
+
+#calc-history   {
+    float: right;
+    width: 210px;
+    height: 280px;
+    background-color: seashell;
+    border-radius: 6px;
+    margin-top: 7px;
+    padding: 12px;
+}
+
+#calc-history-box   {
+    width: 190px !important;
+    height: 230px !important;
+}
+
+#calc-history hr{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
