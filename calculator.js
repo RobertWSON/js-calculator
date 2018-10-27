@@ -138,7 +138,7 @@ $(document).ready(function()    {
         for (var i = 0; i < tokenList.length; i++)  {
             if(tokenList[i] === "left-brac") {
                 count++;
-            }   elseif (tokenList[i] === "right-brac")   {
+            }   else if (tokenList[i] === "right-brac")   {
                 count--;
             }           
         }
@@ -162,7 +162,7 @@ $(document).ready(function()    {
         }   else if (tokenList[i] === "left-brac")   {
             opStack.push(tokenList[i]);
             
-        }   elseif (tokenList[i] === "right-brac") {
+        }   else if (tokenList[i] === "right-brac") {
 
             while (opStack [opStack.length - 1]!== "left-brac")  {
                 var operator = getOperator (opStack.pop());
@@ -174,10 +174,10 @@ $(document).ready(function()    {
                 opStack.pop();
 
             }   else    {
-            while (opStack.length > 0 && hasPrecedence(opStack[opStack/length - 1], tokenList[i]))  {
+            while (opStack.length > 0 && hasPrecedence(opStack[opStack.length - 1], tokenList[i]))  {
                 var operator = getOperator (opStack.pop());
                 if (operator.numOperands === 1)
-                    valStack.push(applyOpertor (operator, [valStack.pop()]));
+                    valStack.push(applyOperator (operator, [valStack.pop()]));
                 else 
                     valStack.push(applyOperator(operator, [valStack.pop(), valStack.pop()]));     
                 } 
@@ -218,13 +218,18 @@ $(document).ready(function()    {
         $ ("#expression").html(out.toString());
 
         calcHistory.push({out: out, expression: expression, tokens: tokens});
-        $("#calc-history-box").append("<p style='color: #B0B0B0;' class='calc-history-eq' + i + "'>" + 
+
+        $("#calc-history-box").html("");
+            for (var i = calcHistory.length - 1; i >= 0; i-- )  {
+
+        $("#calc-history-box").append("<p style='color: #B0B0B0;' class='calc-history-eq' id= 'eq" + i + "'>" + 
         calcHistory[i].expression + "</p> <p style = 'text-align: right; margin-top: -10px;'>= " + calcHistory[i].out + "</p>");
         }
     }    
 
     // Adds token to token list and updates display
     function addToken (token)   {
+        if (isNaN(token))   {
         if ((token === "left-brac" || token === "num-pi") && !isNaN (tokenList [tokenlist.length - 1]) )    {
             token.List.push("multiply");
         }
@@ -251,10 +256,10 @@ $(document).ready(function()    {
                 if (tokenList[i] === "left-brac")   {
                     htmlString += "(";
 
-                }   elseif (tokenList[i] === "right-brac")  {
+                }   else if (tokenList[i] === "right-brac")  {
                     htmlString += ")";
 
-                }   elseif (tokenList[i] === "num-pi")  {
+                }   else if (tokenList[i] === "num-pi")  {
                     htmlString += "π";
 
                 }   else    {
@@ -292,7 +297,6 @@ $(document).ready(function()    {
         }
     }
 
-
     // Shows or hides advanced operators buttons
     function toggleAdvanced()   {
         $("#advanced-buttons").toggle();
@@ -312,6 +316,7 @@ $(document).ready(function()    {
             case "clear":
                 clearLast();
                 break;
+
             case "AC":
                 if (tokenList.length === 0) {
                     calcHistory.length = 0;
